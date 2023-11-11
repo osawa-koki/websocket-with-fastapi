@@ -17,7 +17,7 @@
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [8000],
+  "forwardPorts": [3000, 8000],
 
   // Uncomment the next line to run commands after the container is created.
   "postCreateCommand": "cat /etc/os-release && python --version && poetry --version && poetry install --no-root",

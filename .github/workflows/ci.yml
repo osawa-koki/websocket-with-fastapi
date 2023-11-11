@@ -3,7 +3,7 @@ name: ci
 on: [push]
 
 jobs:
-  ci:
+  api-ci:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
@@ -28,3 +28,35 @@ jobs:
       run: poetry run python -m isort --check ./app/
     - name: mypy type checking
       run: poetry run python -m mypy ./app/
+  www-ci:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    defaults:
+      run:
+        working-directory: ./www/
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules/
+          key: node-modules-${{ matrix.node-version }}-${{ hashFiles('./**/yarn.lock') }}
+      - name: Install dependencies
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Type check
+        run: yarn type-check
+      - name: Linter check
+        run: yarn lint
+      - name: test build
+        run: yarn build
+        env:
+          NODE_ENV: production

@@ -17,7 +17,10 @@
     "build:dev": "yarn build",
     "build:ts": "node ./build.js",
     "dev": "yarn build:dev && yarn dev:server",
-    "dev:server": "http-server ./public/ -p 3000 -c1"
+    "dev:server": "http-server ./public/ -p 3000 -c1",
+    "lint": "eslint ./src/ --ext .ts",
+    "lint:fix": "yarn lint --fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "esbuild": "^0.19.5",
@@ -25,6 +28,12 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
     "http-server": "^14.1.1"
   }
 }

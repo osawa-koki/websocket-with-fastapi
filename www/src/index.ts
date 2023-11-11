@@ -7,8 +7,12 @@ const url = isProd
 const formElement = document.getElementById('form')! as HTMLFormElement
 const messagesElement = document.getElementById('messages')! as HTMLUListElement
 const inputElement = document.getElementById("messageText")! as HTMLInputElement
+const wsIdElement = document.getElementById("ws-id")! as HTMLSpanElement
 
-const ws = new WebSocket(url)
+const client_id = Date.now()
+wsIdElement.textContent = client_id.toString()
+
+const ws = new WebSocket(`${url}/${client_id}`)
 ws.onmessage = function (event) {
   const { data } = event
   const message = document.createElement('li')

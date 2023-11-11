@@ -1,0 +1,31 @@
+{
+  "name": "websocket-with-fastapi",
+  "version": "1.0.0",
+  "description": "🥮🥮🥮 FastAPIでWebSocketを使用してみる！",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/osawa-koki/websocket-with-fastapi.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 18.0.0",
+    "yarn": ">= 1.22.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "yarn build:ts",
+    "build:dev": "NODE_ENV=development yarn build",
+    "build:prod": "NODE_ENV=production yarn build",
+    "build:ts": "node ./build.js",
+    "dev": "yarn build:dev && yarn dev:server",
+    "dev:server": "http-server ./public/ -p 3000 -c1"
+  },
+  "dependencies": {
+    "esbuild": "^0.19.5",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "http-server": "^14.1.1"
+  }
+}

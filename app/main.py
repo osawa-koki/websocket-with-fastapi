@@ -1,5 +1,5 @@
 from fastapi import FastAPI, WebSocket
-from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -10,3 +10,5 @@ async def websocket_endpoint(websocket: WebSocket):
     while True:
         data = await websocket.receive_text()
         await websocket.send_text(f"Message text was: {data}")
+
+app.mount("/", StaticFiles(directory="./public/", html=True), name="static")

@@ -17,7 +17,10 @@
     "build:dev": "yarn build",
     "build:ts": "node ./build.js",
     "dev": "yarn build:dev && yarn dev:server",
-    "dev:server": "http-server ./public/ -p 3000 -c1"
+    "dev:server": "http-server ./public/ -p 3000 -c1",
+    "lint": "eslint ./src/ --ext .ts",
+    "lint:fix": "yarn lint --fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "esbuild": "^0.19.5",

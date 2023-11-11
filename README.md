@@ -2,6 +2,8 @@
 
 🥮🥮🥮 FastAPIでWebSocketを使用してみる！  
 
+![成果物](./docs/images/fruit.gif)  
+
 ## 実行方法
 
 ```shell

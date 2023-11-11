@@ -58,3 +58,5 @@ jobs:
         run: yarn lint
       - name: test build
         run: yarn build
+        env:
+          NODE_ENV: production

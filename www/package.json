@@ -12,6 +12,8 @@
     "yarn": ">= 1.22.0"
   },
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
   "devDependencies": {}
 }

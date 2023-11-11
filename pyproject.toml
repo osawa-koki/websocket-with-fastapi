@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "websocket-with-fastapi"
+version = "0.1.0"
+description = "🥮🥮🥮 FastAPIでWebSocketを使用してみる！"
+authors = ["osawa-koki <koki@osawa.dev>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
+websockets = "^12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

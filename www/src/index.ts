@@ -1,7 +1,7 @@
 const NODE_ENV = process.env.NODE_ENV
 const isProd = NODE_ENV === 'production'
 const url = isProd
-  ? `ws://${window.location.host}/ws`
+  ? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws}`
   : 'ws://localhost:8000/ws'
 
 const formElement = document.getElementById('form')! as HTMLFormElement

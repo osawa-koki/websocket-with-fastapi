@@ -10,8 +10,9 @@ const inputElement = document.getElementById("messageText")! as HTMLInputElement
 
 const ws = new WebSocket(url)
 ws.onmessage = function (event) {
+  const { data } = event
   const message = document.createElement('li')
-  const content = document.createTextNode(event.data)
+  const content = document.createTextNode(data)
   message.appendChild(content)
   messagesElement.appendChild(message)
 }

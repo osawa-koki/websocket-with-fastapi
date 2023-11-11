@@ -14,8 +14,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn build:ts",
-    "build:dev": "NODE_ENV=development yarn build",
-    "build:prod": "NODE_ENV=production yarn build",
+    "build:dev": "yarn build",
     "build:ts": "node ./build.js",
     "dev": "yarn build:dev && yarn dev:server",
     "dev:server": "http-server ./public/ -p 3000 -c1"

@@ -1,11 +1,13 @@
 FROM node:20 AS build
+ENV NODE_ENV production
 WORKDIR /src/
 COPY ./www/package.json ./www/yarn.lock ./
 RUN yarn install --frozen-lockfile --non-interactive --production
 COPY ./www/ ./
-RUN yarn build:prod
+RUN yarn build
 
 FROM python:3.11 AS server
+ENV ENV production
 EXPOSE 8000
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH $PATH:/root/.local/bin

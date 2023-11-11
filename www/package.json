@@ -13,6 +13,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "esbuild": "^0.19.5",
     "typescript": "^5.2.2"
   },
   "devDependencies": {}

@@ -12,6 +12,6 @@ ENV PATH $PATH:/root/.local/bin
 WORKDIR /app/
 COPY ./pyproject.toml ./poetry.lock ./
 RUN poetry install --no-root --no-dev
-COPY --from=build /src/public/ ./
+COPY --from=build /src/public/ ./public/
 COPY ./ ./
 CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
